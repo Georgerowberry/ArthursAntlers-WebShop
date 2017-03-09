@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arthursantlers</title>
+    {% load static %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/assets/img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static '/assets/img/favicon/favicon-32x32.png' %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static '/assets/img/favicon/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="manifest" href="{% static '/assets/img/favicon/manifest.json' %}">
+    <link rel="mask-icon" href="{% static '/assets/img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <link rel="shortcut icon" href="{% static '/assets/img/favicon/favicon.ico' %}">
+    <meta name="msapplication-config" content="{% static '/assets/img/favicon/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static '/assets/css/user.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Animated-Pretty-Product-List.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Animated-Pretty-Product-List1.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Header-Blue.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static '/assets/css/Lightbox-Gallery.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/MUSA_product-display.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/MUSA_product-display1.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Navigation-with-Search1.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/scrolling-nav.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Team-Boxed.css' %}">
+    <script src="{% static '/assets/js/simpleCart.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top page-scroll">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link page-scroll" href="#top"><span class="top-title" style="padding-left:10px;font-size:24px;">Arthur's Antlers</span></a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><a href="#section2" class="page-scroll">Info </a></li>
+                        <li role="presentation"><a href="#section3" class="page-scroll">Products </a></li>
+                        <li role="presentation"><a href="#section4" class="page-scroll">Care </a></li>
+                        <li role="presentation"><a href="#" data-toggle="modal" data-target="#modal-fullscreen" class="page-scroll"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span></a></li>
+
+                    </ul>
+                    <form class="navbar-form navbar-right" target="_self">
+                       
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="modal modal-fullscreen fade" id="modal-fullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="100vh" height="100vh" >Shopping Cart</h3>
+      </div>
+      <div class="modal-body">
+    <div class="simpleCart_items cart_style"></div>
+
+
+          <div class="col-md-6">
+         <div class="form-group">
+  <h3><label for="commentinput">Comment:</label></h3>
+             <textarea class="form-control" style="background-color: rgb(255, 240, 245);" rows="4" id="commentinput"
+                       name="commentinput"></textarea>
+             <button style="float: right;" type="submit" class="btn btn-lg btn-default" onclick="beforeCheckout();" >Save</button>
+
+</div>
+      </div>
+      <div class="modal-footer">
+
+          <h4>Total</h4>
+          <h5><div class="simpleCart_total"></div></h5>
+          <br />
+          <h4>Shipping | Gift Wrapping</h4>
+          <h5><div class="simpleCart_shipping"></div></h5>
+          <br />
+          <h4>Grand Total</h4>
+          <h5><div class="simpleCart_grandTotal"></div></h5>
+          <br />
+
+        <button type="button" href="javascript:;" class="btn btn-default simpleCart_checkout" >Checkout | Paypal</button>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="container" style="padding-top:5vh;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;"><span class="text-title" style="padding-left:10px;font-size:34px;">Arthur's Antlers</span></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;">
+                    <a href="#section2" class="page-scroll"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="200vh" height="100vh" style="padding-top: 50px;" data-bs-hover-animate="swing"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div></div>
+    <div class="container-fluid post" id="section2" style="background:url({% static '/assets/img/fabric_of_squares_gray.png' %}) repeat;min-height:100vh; padding-bottom: 50px;" >
+        <div class="row" style="min-height:500px;">
+        <div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 item" style="font-family:'Roboto';">
+                <div class="box"><img class="img-circle img-responsive" src="{% static '/assets/img/tommy-1.jpg' %}" width="200px" data-aos="fade-up" data-aos-duration="1400" style="padding-top:70px;margin-left:auto;margin-right:auto;">
+                    <h3 class="text-center name">Tommy Kear</h3>
+                    <p class="text-center title">Artist</p>
+
+                        <p class="text-center description">{% for info in info %}{{ info.about_tom|safe }}{% endfor %}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid post" id="section3" style="background: rgb(75, 78, 81); padding-top: 40px; padding-bottom: 40px;" >
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <div class="container">
+                        <div class="row product-list">
+                        {% for product in products %}
+                        {% if product.available == True %}
+                            <div class="col-md-4 col-sm-6 product-item animation-element slide-left simpleCart_shelfItem">
+                                <div class="product-container" style="background:url({% static '/assets/img/fabric_of_squares_gray.png' %}) repeat;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="hovereffect">
+                                                <img class="img-responsive item_image" src="{{ product.image.url }}" alt="{{ product.image.url }}">
+                                                    <div class="overlay">
+                                                        <h2>{{ product.name }}</h2>
+                                                         <a class="info item_add" href="javascript:;">ADD TO CART</a>
+                                                    </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div style="padding: 20px;">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+
+                                            <h2><a href="#" class="item_name">{{ product.name }}</a></h2></div>
+                                        <div class="col-xs-4"><a href="#" class="small-text"></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="product-description">{{ product.description }}</p>
+
+                                            <div class="row">
+                                                <div class="col-xs-6">
+
+
+
+                                                    <div class="form-group">
+                                                      <h5><label for="sel1">Gift Wrapped?</label></h5>
+                                                      <select class="form-control item_gift" id="sel1">
+                                                        <option><a>Yes</a></option>
+                                                        <option selected><a>No</a></option>
+                                                      </select>
+                                                    </div>
+
+
+
+
+                                                </div><div class="col-xs-6">
+                                                    <p class="product-price item_price"><a>£{{ product.price }}</a> </p>
+                                                </div>
+                                                    <button style="float: right;" class="btn btn-default item_add" href="javascript:;"  type="button">Add To Cart</button>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                            </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+    <div class="container-fluid post" id="section4" style="background:url({% static '/assets/img/fabric_of_squares_gray.png' %}) repeat;min-height:100vh; padding-bottom: 50px;" >
+        <div class="row" style="min-height:500px;">
+            <div class="col-md-6" style="min-height:500px;vertical-align:middle;padding-top:10vh;padding-left:0px;">
+                <!-- SnapWidget -->
+
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 item" style="font-family:'Roboto';">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+         simpleCart.shipping(function(){
+                var total = 0;
+                simpleCart.each( function( item ){
+                    if( item.get('gift') == 'on' ){
+                        total+= item.quantity()*3;
+                } else {
+                  total+= 0;
+                    }
+              });
+              return total;
+            });
+
+
+
+        simpleCart({
+            checkout: {
+                type: "PayPal",
+                email: "tomkear@hotmail.co.uk"
+                
+                    },
+
+
+            shippingCustom: function(){
+                var offer = 0;
+                var total = 0;
+                if(simpleCart.total() > 50){
+                    offer = 0;
+                } else {
+                    offer += 3;
+                }
+                    simpleCart.each(function (item) {
+                        if( item.get('gift') == "Yes" ){
+                        total+= item.quantity()*3;
+                    }
+
+                });
+                    return total + offer;
+         },
+
+
+
+
+
+                    
+         
+            cartColumns: [
+                { view: function(item, column){
+                        return"<img src='"+item.get('image')+"'>";
+                        },
+                    attr: 'image' },
+
+
+
+
+                { attr: "name" , label: "Name" } ,
+                { attr: "price" , label: "Price", view: 'currency' } ,
+                { view: "decrement" , label: false , text: "-" } ,
+                { attr: "quantity" , label: "Qty" } ,
+                { view: "increment" , label: false , text: "+" } ,
+                { attr: "total" , label: "SubTotal", view: 'currency' } ,
+                { view: "remove" , text: "Remove" , label: false },
+                { attr: "gift" , label: "Gift?"},
+                { view: "shipping" , text: "Shipping", }
+    ],
+            cartStyle: 'table',
+            beforeCheckout: function(data) {
+                      data.comment = document.getElementById("commentinput");
+
+                  },
+
+
+
+                 });
+</script>
+
+<div class="container-fluid foot" id="foot">
+    <div class="row footrow">
+        <div class="col-md-6">
+
+            <h3 > <i class="fa fa-phone" style="cursor: pointer;"></i><a href="tel:07590995350"> 077989989989</a></h3>
+            <h3 > <i class="fa fa-envelope" style="cursor: pointer;"></i><a href="mailto:arthursantlers@hotmail.com"> E-mail</a> </h3>
+            <h3> <i class="fa fa-instagram" style="cursor: pointer;"></i><a href="https://www.instagram.com/arthurs.antlers/" target="_blank"> @Arthurs.Antlers</a></h3>
+            <h3> <i class="fa fa-facebook" style="cursor: pointer;"></i><a href="https://www.facebook.com/arthursantlers/" target="_blank"> @ArthursAntlers</a></h3></div>
+
+        <div class="col-md-6 parent" style="padding-right: 10px; position: relative;">
+
+
+                 <h3 class="text-right" style="padding-bottom: 8px; cursor: pointer; " href="#shipmodal" data-toggle="modal">Shipping <i class="fa fa-truck"></i> </h3>
+                <h3 class="text-right" href="#tcmodal" style="cursor:pointer;" data-toggle="modal">Terms and Conditions <i class="fa fa-file-text"></i></h3>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- T&Cs Modal -->
+<div class="modal fade" id="tcmodal" tabindex="-1" role="dialog" aria-labelledby="tcmodal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tcmodal_title">Terms and Conditions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+Terms and Conditions ("Terms")
+
+Last updated: March 09, 2017
+
+Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the arthursantlers.co.uk website (the "Service") operated by Arthur's Antlers ("us", "we", or "our").
+
+Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+
+By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. Our Terms & Conditions was created with TermsFeed.
+
+Links To Other Web Sites
+
+Our Service may contain links to third-party web sites or services that are not owned or controlled by Arthur's Antlers.
+
+Arthur's Antlers has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Arthur's Antlers shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
+
+We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
+
+Termination
+
+We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+
+All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
+
+Governing Law
+
+These Terms shall be governed and construed in accordance with the laws of United Kingdom, without regard to its conflict of law provisions.
+
+Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
+
+Changes
+
+We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+
+By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.
+
+Contact Us
+
+If you have any questions about these Terms, please contact us.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="shipmodal" tabindex="-1" role="dialog" aria-labelledby="shipmodal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shipmodal_title">Shipping</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        stuff about shipping
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+        <h5>GWCR Web Design © 2017</h5></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static '/assets/js/Animated-Pretty-Product-List.js' %}"></script>
+    <script src="{% static '/assets/js/bs-animation.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static '/assets/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static '/assets/js/MUSA_product-display.js' %}"></script>
+    <script src="{% static '/assets/js/scrolling-nav.js' %}"></script>
+    <script src="{% static '/assets/js/Simple-Slider.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+
+</body>
+
+</html>
