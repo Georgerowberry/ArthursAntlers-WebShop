@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4c2392f1-4741-4752-9eb5-033aef1884ca" name="arthursantlers.infinsoft.co.uk" url="http://arthursantlers.infinsoft.co.uk">
+        <fileTransfer host="arthursantlers.infinsoft.co.uk" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
