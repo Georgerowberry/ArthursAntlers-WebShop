@@ -23,6 +23,15 @@ header {
   color:#333;
   font-weight:bold;
   background-color:rgba(255,255,255,0.4);
+    text-transform: uppercase;
+}
+
+.top-title {
+
+}
+
+.responsive-products {
+
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -361,7 +370,7 @@ h3 a:hover, a:focus {
 footer {
   padding:10px;
   text-align:center;
-  background-color: rgb(75, 78, 81);
+  background-color: #333;
   color:#fff;
 }
 

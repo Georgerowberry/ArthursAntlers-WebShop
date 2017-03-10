@@ -39,6 +39,9 @@
     <script src="{% static '/assets/js/simpleCart.js' %}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/slick/slick-theme.css' %}"/>
+
 
 
 </head>
@@ -47,7 +50,7 @@
     <header>
         <nav class="navbar navbar-default navbar-fixed-top page-scroll">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link page-scroll" href="#top"><span class="top-title" style="padding-left:10px;font-size:24px;">Arthur's Antlers</span></a>
+                <div class="navbar-header"><a class="navbar-brand navbar-link page-scroll" href="#top"><span class="top-title" style="padding-left:10px;font-size:24px;text-transform: uppercase;">Arthur's Antlers</span></a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
@@ -133,7 +136,7 @@
             <div class="col-md-12">
                 <div>
                     <div class="container">
-                        <div class="row product-list">
+                        <div class="row product-list responsive-products">
                         {% for product in products %}
                         {% if product.available == True %}
                             <div class="col-md-4 col-sm-6 product-item animation-element slide-left simpleCart_shelfItem">
@@ -225,9 +228,6 @@
     </div>
 
     <script>
-
-
-
          simpleCart.shipping(function(){
                 var total = 0;
                 simpleCart.each( function( item ){
@@ -290,7 +290,7 @@
                 { attr: "total" , label: "SubTotal", view: 'currency' } ,
                 { view: "remove" , text: "Remove" , label: false },
                 { attr: "gift" , label: "Gift?"},
-                { view: "shipping" , text: "Shipping", }
+                { view: "shipping" , text: "Shipping" }
     ],
             cartStyle: 'table',
             beforeCheckout: function(data) {
@@ -305,14 +305,14 @@
 
 <div class="container-fluid foot" style="background: url(/staticfiles/assets/img/embossed-paper.png) repeat;" id="foot">
     <div class="row footrow">
-        <div class="col-md-6">
+        <div class="col-md-5">
 
             <h3 > <i class="fa fa-phone" style="cursor: pointer;"></i><a href="tel:07590995350"> 077989989989</a></h3>
             <h3 > <i class="fa fa-envelope" style="cursor: pointer;"></i><a href="mailto:arthursantlers@hotmail.com"> E-mail</a> </h3>
             <h3> <i class="fa fa-instagram" style="cursor: pointer;"></i><a href="https://www.instagram.com/arthurs.antlers/" target="_blank"> @Arthurs.Antlers</a></h3>
             <h3> <i class="fa fa-facebook" style="cursor: pointer;"></i><a href="https://www.facebook.com/arthursantlers/" target="_blank"> @ArthursAntlers</a></h3></div>
-
-        <div class="col-md-6 parent" style="padding-right: 10px; position: relative;">
+        <div class="col-md-2" style="display: flex; align-content: center; align-items: center; justify-content: center;"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="150vh" height="100vh" style="padding-top: 50px;"></div>
+        <div class="col-md-5 parent" style="padding-right: 10px; position: relative;">
 
 
                  <h3 class="text-right" style="padding-bottom: 8px; cursor: pointer; " href="#shipmodal" data-toggle="modal">Shipping <i class="fa fa-truck"></i> </h3>
@@ -406,7 +406,7 @@ If you have any questions about these Terms, please contact us.
 
     <footer style="background-image: url(/staticfiles/assets/img/mirrored-squares.png);">
         <h5>GWCR Web Design © 2017</h5></footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{% static '/assets/js/Animated-Pretty-Product-List.js' %}"></script>
     <script src="{% static '/assets/js/bs-animation.js' %}"></script>
@@ -419,8 +419,70 @@ If you have any questions about these Terms, please contact us.
     <script src="{% static '/assets/js/Simple-Slider.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="{% static '/assets/slick/slick.min.js' %}"></script>
 
 
+<script type="text/javascript">
+                var info = $("#section2").offset().top;
+                var products = $("#section3").offset().top;
+                var care = $("#section4").offset().top;
+
+
+            var $w = $(window).scroll(function(){
+                if ( $w.scrollTop() > info && $w.scrollTop()< products ) {
+                    $('.top-title').css({"color": "#333"});
+                }
+                else
+                    if ($w.scrollTop() > care ) {
+                        $('.top-title').css({"color": "#333"});
+                    }
+                    else {
+                        $('.top-title').css({"color": "#fff"});
+                    }
+
+                });
+
+
+        $(document).ready(function() {
+
+            $('.responsive-products').slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        });
+</script>
 
 </body>
 

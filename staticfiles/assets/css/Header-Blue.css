@@ -259,8 +259,12 @@
 
 @media (max-width:785px) {
   header {
-    background:url(../img/cork-wallet.png) repeat;
+    background-image:url(../img/wood.jpg);
+    background-position: center;
     height:100vh;
+  }
+  .text-title{
+    color: white;
   }
 }
 
