@@ -266,6 +266,12 @@
   .text-title{
     color: white;
   }
+  .slick-prev{
+    visibility: hidden;
+  }
+  .slick-next{
+      visibility: hidden;
+  }
 }
 
 @media (min-width:785px) {

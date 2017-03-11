@@ -67,6 +67,14 @@
                 </div>
             </div>
         </nav>
+        <div class="container" style="padding-top:5vh;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;"><span class="text-title" style="padding-left:10px;font-size:34px;">Arthur's Antlers</span></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;">
+                    <a href="#section2" class="page-scroll"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="200vh" height="100vh" style="padding-top: 50px;" data-bs-hover-animate="swing"></a>
+                </div>
+            </div>
+        </div>
         <div class="modal modal-fullscreen fade" id="modal-fullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -106,21 +114,14 @@
   </div>
 </div>
         </div>
-        <div class="container" style="padding-top:5vh;">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;"><span class="text-title" style="padding-left:10px;font-size:34px;">Arthur's Antlers</span></div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;">
-                    <a href="#section2" class="page-scroll"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="200vh" height="100vh" style="padding-top: 50px;" data-bs-hover-animate="swing"></a>
-                </div>
-            </div>
-        </div>
+
     </header>
         <div class="cointainer-fluid post" style="background-color: #333; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
 
     <div class="container-fluid post" id="section2" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat;min-height:100vh; padding-bottom: 50px;" >
         <div class="row" style="min-height:500px;">
-        <div class="col-lg-2"></div>
-            <div class="col-lg-8 col-md-8 col-sm-8 item" style="font-family:'Roboto';">
+<div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-12 col-sm-12 item" style="font-family:'Roboto';">
                 <div class="box"><img class="img-circle img-responsive" src="{% static '/assets/img/tommy-1.jpg' %}" width="200px" data-aos="fade-up" data-aos-duration="1400" style="padding-top:70px;margin-left:auto;margin-right:auto;">
                     <h3 class="text-center name">Tommy Kear</h3>
                     <p class="text-center title">Artist</p>
@@ -129,7 +130,10 @@
 
                 </div>
             </div>
+            <div class="col-lg-2"></div>
+
         </div>
+
     </div>
     <div class="container-fluid post" id="section3" style="background-color: #333;background-image:url({% static '/assets/img/mirrored-squares.png' %}) ; padding-top: 40px; padding-bottom: 40px;" >
         <div class="row">
@@ -443,6 +447,7 @@ If you have any questions about these Terms, please contact us.
                 });
 
 
+
         $(document).ready(function() {
 
             $('.responsive-products').slick({
@@ -481,6 +486,7 @@ If you have any questions about these Terms, please contact us.
                     // instead of a settings object
                 ]
             });
+
         });
 </script>
 

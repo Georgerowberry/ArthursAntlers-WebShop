@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
 
+
 class Product(models.Model):
     name = models.CharField(max_length=32)
     description = models.TextField(max_length=250, default="description")
@@ -14,13 +15,24 @@ class Product(models.Model):
         return self.name
 
 
-
 class Info(models.Model):
     about_tom = models.TextField(max_length=1000)
 
     def __str__(self):
         return self.about_tom
+
     class Meta:
         verbose_name_plural = 'Info'
+
+
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='img/', blank=True)
+
+    def __str__(self):
+        return self.image.url
+
+    class Meta:
+        verbose_name_plural = 'Gallery'
+
 
 
