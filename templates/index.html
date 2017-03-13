@@ -88,15 +88,15 @@
 
 
           <div class="col-md-6">
-         <div class="form-group">
-  <h3><label for="commentinput">Comment:</label></h3>
-             <textarea class="form-control" style="background-color: rgb(255, 240, 245);" rows="4" id="commentinput"
-                       name="commentinput"></textarea>
-             <button style="float: right;" type="submit" class="btn btn-lg btn-default" onclick="beforeCheckout();" >Save</button>
+  <h3><label for="comment-input">Comment:</label></h3>
+             <textarea  style="background-color: rgb(255, 240, 245); width: 80%;" rows="4" id="comment-input"
+                       ></textarea>
 
-</div>
-      </div>
-      <div class="modal-footer">
+          </div>
+
+
+
+      <div class="modal-footer" style="padding-top: 50px;">
 
           <h4>Total</h4>
           <h5><div class="simpleCart_total"></div></h5>
@@ -116,7 +116,7 @@
         </div>
 
     </header>
-        <div class="cointainer-fluid post" style="background-color: #333; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
+        <div class="cointainer-fluid post" style="background-color: #9a4d2f; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
 
     <div class="container-fluid post" id="section2" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat;min-height:100vh; padding-bottom: 50px;" >
         <div class="row" style="min-height:500px;">
@@ -133,9 +133,19 @@
             <div class="col-lg-2"></div>
 
         </div>
-
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="slider">
+                {% for picture in gallery %}
+                <div class="slide" style="background: url({{ picture.image.url }})no-repeat center;
+      background-size: cover;">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4"></div>
     </div>
-    <div class="container-fluid post" id="section3" style="background-color: #333;background-image:url({% static '/assets/img/mirrored-squares.png' %}) ; padding-top: 40px; padding-bottom: 40px;" >
+    <div class="container-fluid post" id="section3" style="background-color: #9a4d2f;background-image:url({% static '/assets/img/mirrored-squares.png' %}) ; padding-top: 40px; padding-bottom: 40px;" >
         <div class="row">
             <div class="col-md-12">
                 <div>
@@ -206,7 +216,6 @@
                                     </div>
                                 </div>
                             </div>
-    <div class="cointainer-fluid post" style="background-color: #333; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
     <div class="container-fluid post" id="section4" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat; min-height:100vh; padding-bottom: 50px;" >
         <div class="row" style="min-height:500px;">
             <div class="col-md-6" style="min-height:500px;vertical-align:middle;padding-top:10vh;padding-left:0px;">
@@ -220,7 +229,7 @@
             </div>
         </div>
 
-        <div class="cointainer-fluid post" style="background-color: #333; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
+        <div class="cointainer-fluid post" style="background-color: #9a4d2f; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
 
     </div>
 
@@ -244,7 +253,10 @@
               return total;
             });
 
+         simpleCart.bind( 'beforeCheckout' , function(data){
+                      data.comment = document.getElementById("comment-input").value;
 
+                  });
 
         simpleCart({
             checkout: {
@@ -296,11 +308,9 @@
                 { attr: "gift" , label: "Gift?"},
                 { view: "shipping" , text: "Shipping" }
     ],
-            cartStyle: 'table',
-            beforeCheckout: function(data) {
-                      data.comment = document.getElementById("commentinput");
+            cartStyle: 'table'
 
-                  },
+
 
 
 
@@ -311,7 +321,7 @@
     <div class="row footrow">
         <div class="col-md-5">
 
-            <h3 > <i class="fa fa-phone" style="cursor: pointer;"></i><a href="tel:07590995350"> 077989989989</a></h3>
+            <h3 > <i class="fa fa-phone" style="cursor: pointer;"></i><a href="tel:07590995350"> 07590995350</a></h3>
             <h3 > <i class="fa fa-envelope" style="cursor: pointer;"></i><a href="mailto:arthursantlers@hotmail.com"> E-mail</a> </h3>
             <h3> <i class="fa fa-instagram" style="cursor: pointer;"></i><a href="https://www.instagram.com/arthurs.antlers/" target="_blank"> @Arthurs.Antlers</a></h3>
             <h3> <i class="fa fa-facebook" style="cursor: pointer;"></i><a href="https://www.facebook.com/arthursantlers/" target="_blank"> @ArthursAntlers</a></h3></div>
@@ -391,14 +401,40 @@ If you have any questions about these Terms, please contact us.
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="shipmodal_title">Shipping</h5>
+        <h5 class="modal-title" id="shipmodal_title"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        stuff about shipping
-      </div>
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="text-center" style="background-color: #4e4e4e; color: white">Shipping</h1>
+        <div class="row" style="  padding-top:50px;
+">
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <h3 class="text-center"><i class="fa fa-truck"></i></h3></div>
+            <div class="col-md-10 col-sm-10">
+                <h3 class="text-center">Standard Delivery</h3>
+                <h4 class="text-center">Royal Mail 1st Class</h4>
+                <h4 class="text-center">Next Working Day</h4>
+                <h4 class="text-center">£3 - Free on Orders over £50</h4></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h1 class="text-center" style="background-color: #4e4e4e; color: white">Returns</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">Arthur&#39;s Antlers will accept returns for items if you anre not 100% satisfied</h4>
+                <h4 class="text-center"><i class="glyphicon glyphicon-option-horizontal"></i></h4>
+                <h4 class="text-center">Simlpy send the item back for a full refund minus postage</h4>
+                <h4 class="text-center"><i class="glyphicon glyphicon-option-horizontal"></i></h4>
+                <h4 class="text-center">You can return a product up to 30 days after purchase</h4></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h4 class="text-center" style="padding-top: 20px;">Due to the nature and time of producing bespoke hand crafted pieces, dispatch date may be up to 7 days after order, we will inform you of any delays should there be any.</h4></div>
+</div>      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
@@ -448,6 +484,8 @@ If you have any questions about these Terms, please contact us.
 
 
 
+
+
         $(document).ready(function() {
 
             $('.responsive-products').slick({
@@ -488,6 +526,9 @@ If you have any questions about these Terms, please contact us.
             });
 
         });
+
+
+
 </script>
 
 </body>
