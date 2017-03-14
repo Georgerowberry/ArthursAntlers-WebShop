@@ -43,7 +43,6 @@
     <link rel="stylesheet" type="text/css" href="{% static '/assets/slick/slick-theme.css' %}"/>
 
 
-
 </head>
 
 <body id="top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -217,16 +216,62 @@
                                 </div>
                             </div>
     <div class="container-fluid post" id="section4" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat; min-height:100vh; padding-bottom: 50px;" >
-        <div class="row" style="min-height:500px;">
-            <div class="col-md-6" style="min-height:500px;vertical-align:middle;padding-top:10vh;padding-left:0px;">
-                <!-- SnapWidget -->
+        <div class="w3-container">
 
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 item" style="font-family:'Roboto';">
+          <div class="w3-bar ">
+              <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
 
+              <div class="col-lg-4 col-md-4 col-md-offset-1 col-sm-6 col-xs-6" >
+              <div class="hovereffect" style="">
+                  <div class="w3-bar-item tablink" onclick="openCare(event,'Wood')">
+                      <img class="img-responsive"  src="{% static '/assets/img/wallnut.jpg' %}" >
 
+                  </div>
+                  <div class="overlay tablink" onclick="openCare(event,'Wood')">
+                  </div>
+              </div>
+              </div>
+
+                <div class="col-lg-4 col-md-4 col-md-offset-2 col-sm-6 col-xs-6">
+                  <div class="hovereffect" style="">
+                  <div class="w3-bar-item tablink " onclick="openCare(event,'Antler')">
+                      <img class="img-responsive"  src="{% static '/assets/img/antler.jpg' %}" >
+
+                  </div>
+                  <div class="overlay tablink" onclick="openCare(event,'Antler')">
+                  </div>
+              </div>
+              </div>
+              </div>
+          </div>
+            <div class="row" style="background-image: url({% static '/assets/img/dark-wall.png' %}); padding-top: 10px; padding-bottom: 10px;">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                    <div id="Foreword" class="w3-container care w3-animate-opacity text-center">
+            <h4>I hope you love and enjoy these items as much as I have making them!
+These items are all made with natural materials and therefor their properties are not always controlled.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
+I will and always try my best to give you the greatest satisfaction from all of my products.<br><li class="glyphicon glyphicon-option-horizontal"></li><br> If you come across any issues or errors, please do not hesitate to let me know and I will try and amend the issue.
+I would love to keep this labour of love a personal one and so I'd like to think each of your purchases is a friendly transaction and one I wouldn't want to tarnish.
+            </h4>
+
+          </div>
+                    <div id="Wood" class="w3-container care w3-animate-opacity text-center" style="display: none;">
+            <h4>The wooden item you may receive will be pre-oiled and ready to use.<br><li class="glyphicon glyphicon-option-horizontal"></li><br> Now I ask, please do not put these wooden items in a machine washer, they need light cleaning in a bath of warm soapy water.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
+If you feel the finish is diminishing from the product, please just add a small amount of olive oil, or wood care butter from the store,to your palm and warm by working it lightly, apply this to the wooden item lightly and leave to stand for an hour or so, you may want to wipe off any excess depending on the amount of product you use.<br>
+The idea of using your hand is that the heat and friction from your hands will allow deeper penetration of the care product into the wood.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
+Most of all, I hope you love the item you have in your hands :) </h4>
+
+          </div>
+
+          <div id="Antler" class="w3-container care w3-animate-opacity text-center" style="display:none">
+
+            <h4>The antler and horn items shouldn't need an over an amount of care, these are made from hardy natural products that can withstand the test of the elements and hopefully the trials of your usage.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
+Please remember that these products are natural and therefore maybe fragile, please do not overload with excess force or strain.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
+A small amount of mineral oil, olive oil or wood care butter (obtained in store) can be applied to these items to rejuvenate their shine but I must ask you to use a very fine wire wool to reapply the finish onto your items. </h4>
+          </div>
                 </div>
             </div>
+</div>
+        </div>
         </div>
 
         <div class="cointainer-fluid post" style="background-color: #9a4d2f; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
@@ -328,10 +373,11 @@
         <div class="col-md-2" style="display: flex; align-content: center; align-items: center; justify-content: center;"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="150vh" height="100vh" style="padding-top: 50px;"></div>
         <div class="col-md-5 parent" style="padding-right: 10px; position: relative;">
 
-
-                 <h3 class="text-right" style="padding-bottom: 8px; cursor: pointer; " href="#shipmodal" data-toggle="modal">Shipping <i class="fa fa-truck"></i> </h3>
+            <div class="tc-bottom">
+                <h3 class="padding-bottom: 8px;"> </h3><h3 class="padding-bottom: 8px;"> </h3>
+                 <h3 class="text-right" style="padding-bottom: 8px; cursor: pointer; " href="#shipmodal" data-toggle="modal">Shipping <i class="fa fa-truck"></i></h3>
                 <h3 class="text-right" href="#tcmodal" style="cursor:pointer;" data-toggle="modal">Terms and Conditions <i class="fa fa-file-text"></i></h3>
-
+            </div>
         </div>
     </div>
 
@@ -468,22 +514,34 @@ If you have any questions about these Terms, please contact us.
                 var care = $("#section4").offset().top;
 
 
-            var $w = $(window).scroll(function(){
-                if ( $w.scrollTop() > info && $w.scrollTop()< products ) {
+            var $w = $(window).scroll(function() {
+                if ($w.scrollTop() > info && $w.scrollTop() < products) {
                     $('.top-title').css({"color": "#333"});
                 }
-                else
-                    if ($w.scrollTop() > care ) {
-                        $('.top-title').css({"color": "#333"});
-                    }
-                    else {
-                        $('.top-title').css({"color": "#fff"});
-                    }
+                else if ($w.scrollTop() >= care) {
+                    $('.top-title').css({"color": "#333"});
+                }
+                else {
+                    $('.top-title').css({"color": "#fff"});
+                }
+
 
                 });
 
 
+            function openCare(evt, careName) {
+              var i, x, tablinks;
+              x = document.getElementsByClassName("care");
+              for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablink");
+              for (i = 0; i < x.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+              }
+              document.getElementById(careName).style.display = "block";
 
+            }
 
 
         $(document).ready(function() {
