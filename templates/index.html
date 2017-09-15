@@ -1,594 +1,341 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arthursantlers</title>
-    {% load static %}
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/assets/img/favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" href="{% static '/assets/img/favicon/favicon-32x32.png' %}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{% static '/assets/img/favicon/favicon-16x16.png' %}" sizes="16x16">
-    <link rel="manifest" href="{% static '/assets/img/favicon/manifest.json' %}">
-    <link rel="mask-icon" href="{% static '/assets/img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
-    <link rel="shortcut icon" href="{% static '/assets/img/favicon/favicon.ico' %}">
-    <meta name="msapplication-config" content="{% static '/assets/img/favicon/browserconfig.xml' %}">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static '/assets/css/user.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Animated-Pretty-Product-List.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Animated-Pretty-Product-List1.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Header-Blue.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="{% static '/assets/css/Lightbox-Gallery.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/MUSA_product-display.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/MUSA_product-display1.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Navigation-with-Search1.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/scrolling-nav.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Simple-Slider.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/Team-Boxed.css' %}">
-    <script src="{% static '/assets/js/simpleCart.js' %}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        {% include 'css/style.css' %}
+    </style>
+    <link href="{% static 'css/jquery.fullPage.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="{% static '/assets/slick/slick.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static '/assets/slick/slick-theme.css' %}"/>
-
-
+    <link rel="stylesheet" type="text/css" href="{% static '/css/photoswipe.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/default-skin.css' %}"/>
+    <script src="https://use.fontawesome.com/57d09f83f7.js"></script>
 </head>
+<body>
+{% autoescape off %}
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-<body id="top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top page-scroll">
-            <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link page-scroll" href="#top"><span class="top-title" style="padding-left:10px;font-size:24px;text-transform: uppercase;">Arthur's Antlers</span></a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="#section2" class="page-scroll">Info </a></li>
-                        <li role="presentation"><a href="#section3" class="page-scroll">Products </a></li>
-                        <li role="presentation"><a href="#section4" class="page-scroll">Care </a></li>
-                        <li role="presentation"><a href="#" data-toggle="modal" data-target="#modal-fullscreen" class="page-scroll"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span></a></li>
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
 
-                    </ul>
-                    <form class="navbar-form navbar-right" target="_self">
-                       
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <div class="container" style="padding-top:5vh;">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;"><span class="text-title" style="padding-left:10px;font-size:34px;">Arthur's Antlers</span></div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:flex;align-content:center;align-items:center;justify-content:center;">
-                    <a href="#section2" class="page-scroll"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="200vh" height="100vh" style="padding-top: 50px;" data-bs-hover-animate="swing"></a>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen fade" id="modal-fullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
 
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="myModalLabel"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="100vh" height="100vh" >Shopping Cart</h3>
-      </div>
-      <div class="modal-body">
-    <div class="simpleCart_items cart_style"></div>
-
-
-          <div class="col-md-6">
-  <h3><label for="comment-input">Comment:</label></h3>
-             <textarea  style="background-color: rgb(255, 240, 245); width: 80%;" rows="4" id="comment-input"
-                       ></textarea>
-
-          </div>
-
-
-
-      <div class="modal-footer" style="padding-top: 50px;">
-
-          <h4>Total</h4>
-          <h5><div class="simpleCart_total"></div></h5>
-          <br />
-          <h4>Shipping | Gift Wrapping</h4>
-          <h5><div class="simpleCart_shipping"></div></h5>
-          <br />
-          <h4>Grand Total</h4>
-          <h5><div class="simpleCart_grandTotal"></div></h5>
-          <br />
-
-        <button type="button" href="javascript:;" class="btn btn-default simpleCart_checkout" >Checkout | Paypal</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
         </div>
 
-    </header>
-        <div class="cointainer-fluid post" style="background-color: #9a4d2f; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
 
-    <div class="container-fluid post" id="section2" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat;min-height:100vh; padding-bottom: 50px;" >
-        <div class="row" style="min-height:500px;">
-<div class="col-lg-2"></div>
-            <div class="col-lg-8 col-md-12 col-sm-12 item" style="font-family:'Roboto';">
-                <div class="box"><img class="img-circle img-responsive" src="{% static '/assets/img/tommy-1.jpg' %}" width="200px" data-aos="fade-up" data-aos-duration="1400" style="padding-top:70px;margin-left:auto;margin-right:auto;">
-                    <h3 class="text-center name">Tommy Kear</h3>
-                    <p class="text-center title">Artist</p>
+            <div class="pswp__top-bar">
 
-                        <p class="text-center description">{% for info in info %}{{ info.about_tom|safe }}{% endfor %}</p>
+                <!--  Controls are self-explanatory. Order can be changed. -->
 
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
+                <div class="pswp__counter"></div>
 
-        </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <div class="slider">
-                {% for picture in gallery %}
-                <div class="slide" style="background: url({{ picture.image.url }})no-repeat center;
-      background-size: cover;">
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="container-fluid post" id="section3" style="background-color: #9a4d2f;background-image:url({% static '/assets/img/mirrored-squares.png' %}) ; padding-top: 40px; padding-bottom: 40px;" >
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <div class="container">
-                        <div class="row product-list responsive-products">
-                        {% for product in products %}
-                        {% if product.available == True %}
-                            <div class="col-md-4 col-sm-6 product-item animation-element slide-left simpleCart_shelfItem">
-                                <div class="product-container" style="background:url({% static '/assets/img/fabric_of_squares_gray.png' %}) repeat;">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="hovereffect">
-                                                <img class="img-responsive item_image" src="{{ product.image.url }}" alt="{{ product.image.url }}">
-                                                    <div class="overlay">
-                                                        <h2>{{ product.name }}</h2>
-                                                         <a class="info item_add" href="javascript:;">ADD TO CART</a>
-                                                    </div>
-                                            </div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
-                                        </div>
-                                    </div>
-                                    <div style="padding: 20px;">
-                                    <div class="row">
-                                        <div class="col-xs-12">
+                <button class="pswp__button pswp__button--share" title="Share"></button>
 
-                                            <h2><a href="#" class="item_name">{{ product.name }}</a></h2></div>
-                                        <div class="col-xs-4"><a href="#" class="small-text"></a></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <p class="product-description">{{ product.description }}</p>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
-                                            <div class="row">
-                                                <div class="col-xs-6">
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-
-
-                                                    <div class="form-group">
-                                                      <h5><label for="sel1">Gift Wrapped?</label></h5>
-                                                      <select class="form-control item_gift" id="sel1">
-                                                        <option><a>Yes</a></option>
-                                                        <option selected><a>No</a></option>
-                                                      </select>
-                                                    </div>
-
-
-
-
-                                                </div><div class="col-xs-6">
-                                                    <p class="product-price item_price"><a>£{{ product.price }}</a> </p>
-                                                </div>
-                                                    <button style="float: right;" class="btn btn-default item_add" href="javascript:;"  type="button">Add To Cart</button>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-                            </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    <div class="container-fluid post" id="section4" style="background:url({% static '/assets/img/embossed-paper.png' %}) repeat; min-height:100vh; padding-bottom: 50px;" >
-        <div class="w3-container">
-
-          <div class="w3-bar ">
-              <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
-
-              <div class="col-lg-4 col-md-4 col-md-offset-1 col-sm-6 col-xs-6" >
-              <div class="hovereffect" style="">
-                  <div class="w3-bar-item tablink" onclick="openCare(event,'Wood')">
-                      <img class="img-responsive"  src="{% static '/assets/img/wallnut.jpg' %}" >
-
-                  </div>
-                  <div class="overlay tablink" onclick="openCare(event,'Wood')">
-                  </div>
-              </div>
-              </div>
-
-                <div class="col-lg-4 col-md-4 col-md-offset-2 col-sm-6 col-xs-6">
-                  <div class="hovereffect" style="">
-                  <div class="w3-bar-item tablink " onclick="openCare(event,'Antler')">
-                      <img class="img-responsive"  src="{% static '/assets/img/antler.jpg' %}" >
-
-                  </div>
-                  <div class="overlay tablink" onclick="openCare(event,'Antler')">
-                  </div>
-              </div>
-              </div>
-              </div>
-          </div>
-            <div class="row" style="background-image: url({% static '/assets/img/dark-wall.png' %}); padding-top: 10px; padding-bottom: 10px;">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
-                    <div id="Foreword" class="w3-container care w3-animate-opacity text-center">
-            <h4>I hope you love and enjoy these items as much as I have making them!
-These items are all made with natural materials and therefor their properties are not always controlled.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
-I will and always try my best to give you the greatest satisfaction from all of my products.<br><li class="glyphicon glyphicon-option-horizontal"></li><br> If you come across any issues or errors, please do not hesitate to let me know and I will try and amend the issue.
-I would love to keep this labour of love a personal one and so I'd like to think each of your purchases is a friendly transaction and one I wouldn't want to tarnish.
-            </h4>
-
-          </div>
-                    <div id="Wood" class="w3-container care w3-animate-opacity text-center" style="display: none;">
-            <h4>The wooden item you may receive will be pre-oiled and ready to use.<br><li class="glyphicon glyphicon-option-horizontal"></li><br> Now I ask, please do not put these wooden items in a machine washer, they need light cleaning in a bath of warm soapy water.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
-If you feel the finish is diminishing from the product, please just add a small amount of olive oil, or wood care butter from the store,to your palm and warm by working it lightly, apply this to the wooden item lightly and leave to stand for an hour or so, you may want to wipe off any excess depending on the amount of product you use.<br>
-The idea of using your hand is that the heat and friction from your hands will allow deeper penetration of the care product into the wood.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
-Most of all, I hope you love the item you have in your hands :) </h4>
-
-          </div>
-
-          <div id="Antler" class="w3-container care w3-animate-opacity text-center" style="display:none">
-
-            <h4>The antler and horn items shouldn't need an over an amount of care, these are made from hardy natural products that can withstand the test of the elements and hopefully the trials of your usage.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
-Please remember that these products are natural and therefore maybe fragile, please do not overload with excess force or strain.<br><li class="glyphicon glyphicon-option-horizontal"></li><br>
-A small amount of mineral oil, olive oil or wood care butter (obtained in store) can be applied to these items to rejuvenate their shine but I must ask you to use a very fine wire wool to reapply the finish onto your items. </h4>
-          </div>
-                </div>
-            </div>
-</div>
-        </div>
-        </div>
-
-        <div class="cointainer-fluid post" style="background-color: #9a4d2f; background-image: url(/staticfiles/assets/img/mirrored-squares.png); min-height: 10vh;"></div>
-
-    </div>
-
-                        </div>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
                     </div>
                 </div>
             </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
         </div>
+
     </div>
 
-    <script>
-         simpleCart.shipping(function(){
-                var total = 0;
-                simpleCart.each( function( item ){
-                    if( item.get('gift') == 'on' ){
-                        total+= item.quantity()*3;
-                } else {
-                  total+= 0;
-                    }
-              });
-              return total;
-            });
+</div>
+<div class="navbar-fixed">
+    <nav role="navigation">
+    <div class="nav-wrapper container-fluid black-text">
+      <a id="logo-container" href="#" style="margin-left: 20px" class="brand-logo pale"><img height="50px" style="vertical-align: middle" src="{% static 'img/logo.png' %}"> Arthurs Antlers</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">ABOUT</a></li>
+          <li><a href="#care">CARE</a></li>
+           <li><a href="#products">PRODUCTS</a></li>
+          <li><a href="#basket" class="modal-trigger">CART</a></li>
+      </ul>
 
-         simpleCart.bind( 'beforeCheckout' , function(data){
-                      data.comment = document.getElementById("comment-input").value;
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
 
-                  });
-
-        simpleCart({
-            checkout: {
-                type: "PayPal",
-                email: "tomkear@hotmail.co.uk"
-                
-                    },
-
-
-            shippingCustom: function(){
-                var offer = 0;
-                var total = 0;
-                if(simpleCart.total() > 50){
-                    offer = 0;
-                } else {
-                    offer += 3;
-                }
-                    simpleCart.each(function (item) {
-                        if( item.get('gift') == "Yes" ){
-                        total+= item.quantity()*3;
-                    }
-
-                });
-                    return total + offer;
-         },
+<div id="fullpage">
+    <div id="index-banner" class="parallax-container" style="min-height: 80vh">
+    <div class="section no-pad-bot">
+      <div class="container center">
+          <div class="row center " style="height: 100%">
+              <img class="img-responsive" src="{% static 'img/logo.png' %}" style="margin:40px auto" height="200px">
+          </div>
 
 
 
+      </div>
+    </div>
+    <div class="parallax"><img id="top_par" src="{% static 'img/wood.jpeg' %}" style="width: 100%"></div>
+  </div>
 
 
-                    
-         
-            cartColumns: [
-                { view: function(item, column){
-                        return"<img src='"+item.get('image')+"'>";
-                        },
-                    attr: 'image' },
+  <div class="container-fluid prime">
+    <div id="about" class="section scrollspy">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m8 center push-m2 pale">
+            <img class="circle responsive-img" style="max-height: 200px" src="static/{{ info.first.image.url }}">
+            <h5>{{ info.first.about_tom }}</h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot scrollspy">
+      <div class="container">
 
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/deer.jpg' %}" alt="Unsplashed background img 2"></div>
+  </div>
 
-                { attr: "name" , label: "Name" } ,
-                { attr: "price" , label: "Price", view: 'currency' } ,
-                { view: "decrement" , label: false , text: "-" } ,
-                { attr: "quantity" , label: "Qty" } ,
-                { view: "increment" , label: false , text: "+" } ,
-                { attr: "total" , label: "SubTotal", view: 'currency' } ,
-                { view: "remove" , text: "Remove" , label: false },
-                { attr: "gift" , label: "Gift?"},
-                { view: "shipping" , text: "Shipping" }
-    ],
-            cartStyle: 'table'
+  <div class="container" style="overflow: -webkit-paged-x;">
+    <div id="products" class="section scrollspy">
 
+      <div class="row">
+        <div class="col s12 center">
+            <div class="row product-list responsive-products">
+                {% for product in products %}
+                    {% if product.available == True %}
+                        <div id="product_item" class="simpleCart_shelfItem card responsive-horizontal black-text prime hoverable"
+                             onclick="product_view({{ product.id }})" style="display: flex">
 
+                            <div class="card-image">
+                                <img src="static/{{ product.images.image1.url }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content pale">
+                                    <input type="hidden" value="1" class="item_Quantity">
+                                    <h5 id="p_title" class="item_name" >{{ product.name }}</h5>
+                                    <p id="p_description">{{ product.description|truncatechars:200 }}</p>
+                                <div class="card-action valign-wrapper" style="width: 100%">
+                                    <h5 class="item_price left">£{{ product.price }}</h5>
+                                    <button href="javascript:;" class="item_add btn-flat right pale flow-text">ADD TO CART</button>
+                                </div></div>
+                            </div>
 
+                        </div>
 
-
-                 });
-</script>
-
-<div class="container-fluid foot" style="background: url(/staticfiles/assets/img/embossed-paper.png) repeat;" id="foot">
-    <div class="row footrow">
-        <div class="col-md-5">
-
-            <h3 > <i class="fa fa-phone" style="cursor: pointer;"></i><a href="tel:07590995350"> 07590995350</a></h3>
-            <h3 > <i class="fa fa-envelope" style="cursor: pointer;"></i><a href="mailto:arthursantlers@hotmail.com"> E-mail</a> </h3>
-            <h3> <i class="fa fa-instagram" style="cursor: pointer;"></i><a href="https://www.instagram.com/arthurs.antlers/" target="_blank"> @Arthurs.Antlers</a></h3>
-            <h3> <i class="fa fa-facebook" style="cursor: pointer;"></i><a href="https://www.facebook.com/arthursantlers/" target="_blank"> @ArthursAntlers</a></h3></div>
-        <div class="col-md-2" style="display: flex; align-content: center; align-items: center; justify-content: center;"><img class="img-responsive" src="{% static '/assets/img/logo.png' %}" width="150vh" height="100vh" style="padding-top: 50px;"></div>
-        <div class="col-md-5 parent" style="padding-right: 10px; position: relative;">
-
-            <div class="tc-bottom">
-                <h3 class="padding-bottom: 8px;"> </h3><h3 class="padding-bottom: 8px;"> </h3>
-                 <h3 class="text-right" style="padding-bottom: 8px; cursor: pointer; " href="#shipmodal" data-toggle="modal">Shipping <i class="fa fa-truck"></i></h3>
-                <h3 class="text-right" href="#tcmodal" style="cursor:pointer;" data-toggle="modal">Terms and Conditions <i class="fa fa-file-text"></i></h3>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
-    </div>
+      <div id="all_products" class="row" style="display: none">
+          {% for product in products %}
+                    {% if product.available == True %}
+                        <div id="product_container" class=" col s12 m6">
+                        <div class="card responsive-horizontal black-text prime hoverable"
+                             onclick="product_view({{ product.id }})">
+                            <div class="card-image">
+                                <img src="static/{{ product.images.image1.url }}">
+                            </div>
+                            <div class="card-stacked ">
+                                <div class="card-content pale">
+                                    <p>{{ product.description|truncatechars:200 }}</p>
+                                </div>
+                                <div class="card-action">
+                                    <button class="btn-flat pale">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
 
-</div>
 
-
-<!-- T&Cs Modal -->
-<div class="modal fade" id="tcmodal" tabindex="-1" role="dialog" aria-labelledby="tcmodal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tcmodal_title">Terms and Conditions</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+                    {% endif %}
+                {% endfor %}
       </div>
-      <div class="modal-body">
 
-Terms and Conditions ("Terms")
-
-Last updated: March 09, 2017
-
-Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the arthursantlers.co.uk website (the "Service") operated by Arthur's Antlers ("us", "we", or "our").
-
-Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
-
-By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. Our Terms & Conditions was created with TermsFeed.
-
-Links To Other Web Sites
-
-Our Service may contain links to third-party web sites or services that are not owned or controlled by Arthur's Antlers.
-
-Arthur's Antlers has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Arthur's Antlers shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
-
-We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
-
-Termination
-
-We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
-
-All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
-
-Governing Law
-
-These Terms shall be governed and construed in accordance with the laws of United Kingdom, without regard to its conflict of law provisions.
-
-Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
-
-Changes
-
-We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
-
-By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.
-
-Contact Us
-
-If you have any questions about these Terms, please contact us.
+      <button id="show_all" class="btn-flat" style="float: right;" onclick="show_all()">SHOW ALL</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-      </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="shipmodal" tabindex="-1" role="dialog" aria-labelledby="shipmodal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="shipmodal_title"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<div class="row">
-    <div class="col-md-6">
-        <h1 class="text-center" style="background-color: #4e4e4e; color: white">Shipping</h1>
-        <div class="row" style="  padding-top:50px;
-">
-            <div class="col-md-2 col-sm-2 col-xs-12">
-                <h3 class="text-center"><i class="fa fa-truck"></i></h3></div>
-            <div class="col-md-10 col-sm-10">
-                <h3 class="text-center">Standard Delivery</h3>
-                <h4 class="text-center">Royal Mail 1st Class</h4>
-                <h4 class="text-center">Next Working Day</h4>
-                <h4 class="text-center">£3 - Free on Orders over £50</h4></div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div id="care" class="section no-pad-bot scrollspy">
+      <div class="container">
+                <div class="row center">
+            <div class="card horizontal black-text translucent">
+                <div class="card-image">
+                <img src="{% static 'img/wallnut.jpg' %}">
+            </div>
+            <div class="card-stacked ">
+                <div class="card-content ">
+                    <p>{{ info.first.wood_info }}</p>
+                </div>
+
+            </div>
+            </div>
+            <div class="card horizontal black-text translucent">
+
+            <div class="card-stacked ">
+                <div class="card-content ">
+                    <p>{{ info.first.antler_info }}</p>
+                </div>
+
+            </div><div class="card-image">
+                <img src="{% static 'img/antler.jpg' %}">
+            </div>
+            </div>
+
         </div>
+
+      </div>
     </div>
-    <div class="col-md-6">
-        <h1 class="text-center" style="background-color: #4e4e4e; color: white">Returns</h1>
+    <div class="parallax"><img src="{% static 'img/wallnut.jpeg' %}" alt="Unsplashed background img 3"></div>
+  </div>
+</div>
+
+
+  <footer class="page-footer prime">
+    <div class="container">
+      <div class="row">
+        <div class="col l9 s12">
+          <h5 class="white-text">ARTHURS ANTLERS</h5>
+            <ul>
+                <li>
+                    <a href="tel:07590995350" class="valign-wrapper grey-text text-lighten-4"><i class="icon_padding material-icons">phone</i> 07590995350</a>
+                    <a href="mailto:arthursantlers@hotmail.com" class="valign-wrapper grey-text text-lighten-4"><i class="icon_padding material-icons">email</i> arthursantlers@hotmail.com</a>
+                    <a href="https://www.instagram.com/arthurs.antlers/" class="valign-wrapper grey-text text-lighten-4"><i class="icon_padding fa fa-2x fa-instagram" aria-hidden="true"></i> @Arthurs.Antlers</a>
+                    <a href="https://www.facebook.com/arthursantlers/" class="valign-wrapper grey-text text-lighten-4"><i class="icon_padding fa fa-2x fa-facebook" aria-hidden="true"></i>  @ArthursAntlers</a>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="col l3 s12 right right-align">
+          <ul>
+            <li><a class="white-text" href="#!">Shipping</a></li>
+            <li><a class="white-text" href="#!">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3">GWCR Design</a>
+      </div>
+    </div>
+  </footer>
+
+{#  Product Modal  #}
+
+<div id="product_modal" class="modal">
+    <div class="modal-content">
         <div class="row">
-            <div class="col-md-12">
-                <h4 class="text-center">Arthur&#39;s Antlers will accept returns for items if you anre not 100% satisfied</h4>
-                <h4 class="text-center"><i class="glyphicon glyphicon-option-horizontal"></i></h4>
-                <h4 class="text-center">Simlpy send the item back for a full refund minus postage</h4>
-                <h4 class="text-center"><i class="glyphicon glyphicon-option-horizontal"></i></h4>
-                <h4 class="text-center">You can return a product up to 30 days after purchase</h4></div>
+            <div class="col s12 m6">
+                <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+                </div>
+            </div>
+            <div id="pro_info" class="col s12 m6" style="height: 100%;">
+                <h5 id="pro_des"></h5>
+                <div class="footer valign-wrapper bottom">
+                    <h4 class="left" id="price"></h4>
+                    <button class="btn-flat right">ADD TO CART</button>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        <h4 class="text-center" style="padding-top: 20px;">Due to the nature and time of producing bespoke hand crafted pieces, dispatch date may be up to 7 days after order, we will inform you of any delays should there be any.</h4></div>
-</div>      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-      </div>
     </div>
+
   </div>
-</div>
 
 
-    <footer style="background-image: url(/staticfiles/assets/img/mirrored-squares.png);">
-        <h5>GWCR Web Design © 2017</h5></footer>
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{% static '/assets/js/Animated-Pretty-Product-List.js' %}"></script>
-    <script src="{% static '/assets/js/bs-animation.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="{% static '/assets/js/jquery.easing.min.js' %}"></script>
-    <script src="{% static '/assets/js/MUSA_product-display.js' %}"></script>
-    <script src="{% static '/assets/js/scrolling-nav.js' %}"></script>
-    <script src="{% static '/assets/js/Simple-Slider.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<div id="basket" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <div class="simpleCart_items"></div>
+            </div>
+
+        </div>
+        <div class="modal-footer"><div class="row">
+                <textarea id="comment-input" class="materialize-textarea"></textarea>
+          <label for="comment-input">Comments</label>
+            </div>
+            <button href="javascript:" class="simpleCart_checkout right btn prime white-text">CHECKOUT</button>
+        </div>
+
+    </div>
+
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+<script src="{% static 'js/jquery.fullPage.js' %}"></script>
     <script type="text/javascript" src="{% static '/assets/slick/slick.min.js' %}"></script>
+<script src="{% static 'js/photoswipe.js' %}"></script>
+<script src="{% static 'js/photoswipe-ui.js' %}"></script>
+<script src="{% static 'assets/js/simpleCart.js' %}"></script>
 
-
-<script type="text/javascript">
-                var info = $("#section2").offset().top;
-                var products = $("#section3").offset().top;
-                var care = $("#section4").offset().top;
-
-
-            var $w = $(window).scroll(function() {
-                if ($w.scrollTop() > info && $w.scrollTop() < products) {
-                    $('.top-title').css({"color": "#333"});
-                }
-                else if ($w.scrollTop() >= care) {
-                    $('.top-title').css({"color": "#333"});
-                }
-                else {
-                    $('.top-title').css({"color": "#fff"});
-                }
-
-
-                });
-
-
-            function openCare(evt, careName) {
-              var i, x, tablinks;
-              x = document.getElementsByClassName("care");
-              for (i = 0; i < x.length; i++) {
-                  x[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablink");
-              for (i = 0; i < x.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-              }
-              document.getElementById(careName).style.display = "block";
-
-            }
-
-
-        $(document).ready(function() {
-
-            $('.responsive-products').slick({
-                dots: false,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
-
-        });
-
+<script>
+    {% include 'js/init.js' %}
 
 
 </script>
+{% endautoescape %}
 
-</body>
-
+  </body>
 </html>

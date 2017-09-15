@@ -62,7 +62,7 @@ ROOT_URLCONF = 'storefront.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'static')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-ALLOWED_HOSTS = ['arthursantlers.infinsoft.co.uk', '127.0.0.1']
+ALLOWED_HOSTS = ['arthursantlers.infinsoft.co.uk', '127.0.0.1', 'localhost']
 
 CART_SESSION_ID = 'cart'
 WSGI_APPLICATION = 'storefront.wsgi.application'
@@ -132,13 +132,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(os.path.abspath(
+    os.path.join(BASE_DIR, 'storefront', 'static')), '')
 
+STATIC_URL = '/static/'
 
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static/"),
+]
