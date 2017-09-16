@@ -1,0 +1,122 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+{% load static %}
+
+.prime {
+  background-color: #9a4d2f;
+}
+
+.a_red {
+  color: #9a4d2f !important;
+}
+
+.slick-prev {
+    left: -105px !important;
+}
+
+.pale {
+  color: #e9e9e9 !important;
+}
+
+#product_item {
+  margin: 0 10px 0 10px;
+}
+
+#product_container {
+  max-height: 300px;
+  margin-top: 10px;
+}
+
+.slick-prev:before {
+  content: none !important;
+}
+
+
+#first_p_img {
+  height: 200px;
+}
+#p_img {
+  height: 100px;
+}
+
+nav {
+  background-color: #9a4d2f;
+  color: #c0b0a0 !important;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.translucent {
+    background-color: rgba(255, 255, 255, 0.64) !important;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+@media (max-width: 600px) {
+  .slick-prev, .slick-next {
+    display: none !important;
+  }
+  #p_title {
+    display: block;
+  }
+  #p_description {
+    display: none;
+  }
+  #top_par {
+    content:url('{% static "img/wood.jpg" %}')
+  }
+
+}
+
+
+.page-footer a {
+  margin-bottom: 10px;
+}
+.icon_padding {
+  margin-right: 10px;
+}
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
